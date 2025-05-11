@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>单骰子游戏</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>🎲 单骰子游戏</h1>
+
+    <div class="control-row">
+      <button id="rollAgain">多摇一次</button>
+      <button id="viewDemo">浏览历史记录</button>
+    </div>
+
+    <div class="dice" id="dice">🎲</div>
+
+    <div class="buttons">
+      <button id="big" class="choice">大</button>
+      <button id="small" class="choice">小</button>
+      <button id="start" class="start">开始</button>
+    </div>
+
+    <div id="result" class="result">等待开始...</div>
+    <div class="sum-display">🎯 骰子点数：<span id="value">0</span></div>
+
+    <div class="history" style="display: none;">
+      <h3>📜 历史记录</h3>
+      <ul id="historyList"></ul>
+    </div>
+
+    <button id="downloadHistory" class="download-fixed">下载历史记录</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
