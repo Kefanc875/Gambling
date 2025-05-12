@@ -32,7 +32,7 @@ function uploadHistoryToSheet(record) {
   const formData = new FormData();
   formData.append("data", JSON.stringify(record));
 
-  fetch("https://script.google.com/macros/s/YOUR_NEW_URL/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbxQcf1kPGrWWF9k41nZ9gOzsifE5WOQprk_zysas_JiJQLqTAbH4jEho2G415jMlo_-/exec", {
     method: "POST",
     body: formData
   })
