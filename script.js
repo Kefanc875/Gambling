@@ -34,11 +34,14 @@ function uploadHistoryToSheet(record) {
 
   fetch("https://script.google.com/macros/s/AKfycbxQcf1kPGrWWF9k41nZ9gOzsifE5WOQprk_zysas_JiJQLqTAbH4jEho2G415jMlo_-/exec", {
     method: "POST",
-    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(record),
     body: formData
   });
 
-  console.log("✅ 数据已发送（无法确认响应）");
+.then(response => response.json())
+.then(data => console.log("成功上传:", data))
+.catch(error => console.error("上传失败:", error));
 }
 
 function addHistory(dice, interactionType, bet, resultOutcome) {
