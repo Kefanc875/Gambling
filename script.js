@@ -34,14 +34,11 @@ function uploadHistoryToSheet(record) {
 
   fetch("https://script.google.com/macros/s/AKfycbxQcf1kPGrWWF9k41nZ9gOzsifE5WOQprk_zysas_JiJQLqTAbH4jEho2G415jMlo_-/exec", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(record),
+    mode: "no-cors",
     body: formData
   });
 
-.then(response => response.json())
-.then(data => console.log("成功上传:", data))
-.catch(error => console.error("上传失败:", error));
+  console.log("✅ 数据已发送（无法确认响应）");
 }
 
 function addHistory(dice, interactionType, bet, resultOutcome) {
@@ -57,7 +54,7 @@ function addHistory(dice, interactionType, bet, resultOutcome) {
   history.push(record);
 
   const li = document.createElement("li");
-  li.textContent = `${record.Time} | IP: ${record.IP} | ${record.Choice} | ${record.Bet} | 🎲 ${record.Dice} ➜ ${record.Result}`;
+  li.textContent = `${record.Time} | IP: ${record.IP} | ${record.Choice} | ${record.bet} | 🎲 ${record.Dice} ➜ ${record.result}`;
   historyList.prepend(li);
 
   uploadHistoryToSheet(record);
