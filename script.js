@@ -1,3 +1,4 @@
+
 const diceEl = document.getElementById("dice");
 const bigBtn = document.getElementById("big");
 const smallBtn = document.getElementById("small");
