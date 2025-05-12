@@ -35,10 +35,18 @@ function uploadHistoryToSheet(record) {
 
   fetch("https://script.google.com/macros/s/AKfycbxQcf1kPGrWWF9k41nZ9gOzsifE5WOQprk_zysas_JiJQLqTAbH4jEho2G415jMlo_-/exec", {
     method: "POST",
-    mode: "no-cors",
     body: formData
   })
-  console.log("✅ 数据已发送（无法确认响应）");
+  .then(response => {
+    if (response.ok) {
+      console.log("✅ 数据已成功上传！");
+    } else {
+      console.error("上传失败: ", response.status);
+    }
+  })
+  .catch(error => {
+    console.error("请求错误: ", error);
+  });
 }
 
 function addHistory(dice, interactionType, bet, resultOutcome) {
